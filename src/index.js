@@ -4,8 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import store from "../src/redux/store/store";
-
+// import store from "../src/Store/Store";
+import store from "./Async-Thunk/Store/store";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -1,31 +1,30 @@
 import { Chance } from "chance";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addUserData } from "../redux/slice/crudOperationSlice";
+import { useDispatch } from "react-redux";
+import { addUser } from "../Slice/Userslice";
+import UserData from "./UserData";
+import DeletUser from "../Components/DeletUser";
 
 function UserDetails() {
-  const user = useSelector((state) => state.user);
-
   const dispatch = useDispatch();
   const chance = Chance();
+
   const fackUserData = () => {
-    console.log(chance.name({ middle: true }));
     return chance.name({ middle: true });
   };
 
   const addNewUser = (payload) => {
-    console.log("fackUserData", fackUserData());
     const fakeData = fackUserData();
-    console.log(chance.name({ suffix: true }));
-    console.log("payload", payload);
-    dispatch(addUserData(fakeData));
+    console.log("fakedata", fakeData);
+    dispatch(addUser(fakeData));
   };
 
   return (
     <>
       <div>
-        UserDetails
-        <button onClick={() => addNewUser()}>Add data</button>
+        <button onClick={() => addNewUser()}>Click To Add New data</button>
+        <UserData />
+        <DeletUser />
       </div>
     </>
   );
