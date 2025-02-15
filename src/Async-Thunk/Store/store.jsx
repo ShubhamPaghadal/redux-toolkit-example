@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import crudOperationSlice from "../slice/crudOperationSlice";
+import todoReducer from "../Slice/Slice";
 
 const store = configureStore({
   reducer: {
-    user: crudOperationSlice,
+    todo: todoReducer,
   },
 });
 
